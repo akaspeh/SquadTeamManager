@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:18.2
+    container_name: SquadTeamManager
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: SquadTeamManager_db
+      POSTGRES_USER: SquadTeamManager_user
+      POSTGRES_PASSWORD: some_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/
+
+volumes:
+  postgres_data:
+
