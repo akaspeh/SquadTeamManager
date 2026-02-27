@@ -2,7 +2,7 @@ import uuid
 from dataclasses import dataclass, field
 
 from typing import Optional
-from ..value_objects.Kit import Kit
+from src.modules.lineup.domain.value_objects.Kit import Kit
 
 @dataclass
 class SquadMember:

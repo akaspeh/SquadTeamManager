@@ -1,8 +1,8 @@
 from typing import List
+import uuid
 from dataclasses import dataclass, field
-from ..value_objects.Formations import Formation
-from ..entities.SquadMember import SquadMember
-from ..policies.SquadPolicy import SquadPolicy
+from src.modules.lineup.domain.entities.SquadMember import SquadMember
+from src.modules.lineup.domain.policies.SquadPolicy import SquadPolicy
 
 # that class can be
 # optimized by storing void squadmembers
@@ -15,8 +15,8 @@ class Squad:
     Aggregate representing a squad lineup.
     Delegates hard rules to SquadPolicy.
     """
-    name: str
-    formation: Formation
+    id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    name: str = "Squad"
     members: List[SquadMember] = field(default_factory=list)
 
     def add_member(self, member: SquadMember):

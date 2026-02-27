@@ -1,6 +1,6 @@
 from typing import List
 
-from ..entities.SquadMember import SquadMember
+from src.modules.lineup.domain.entities.SquadMember import SquadMember
 
 
 class SquadPolicy:
@@ -9,7 +9,7 @@ class SquadPolicy:
     """
 
     MAX_PLAYERS = 9
-    UNIQUE_KITS = ["Squad Leader"]  # можно заменить на List[KitEnum]
+    UNIQUE_KITS = ["Squad Leader"]
 
     @classmethod
     def validate_max_players(cls, lineup) -> None:

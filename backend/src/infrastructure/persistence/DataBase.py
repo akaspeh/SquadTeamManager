@@ -1,5 +1,16 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine, async_sessionmaker
 from backend.src.config import settings
+from sqlalchemy import text
+from src.infrastructure.persistence.BaseModel import BaseModel
+
+async def init_dev_database(url: str):
+    engine = create_async_engine(url)
+
+    async with engine.begin() as conn:
+        await conn.execute(text('CREATE EXTENSION IF NOT EXISTS "pgcrypto";'))
+        await conn.run_sync(BaseModel.metadata.create_all)
+
+    await engine.dispose()
 
 class Database:
     def __init__(self):
@@ -16,7 +27,6 @@ class Database:
             bind=self.engine,
             autoflush=False,
             expire_on_commit=False,
-            autocommit=False
         )
 
     async def dispose(self):
@@ -25,6 +35,10 @@ class Database:
     async def get_session(self):
         async with self.session_factory() as session:
             yield session
+
+    async def bootstrap_dev(self):
+        if settings.run_config.environment == "dev":
+            await init_dev_database(settings.db_config.url)
 
 
 DataBaseManager = Database()
