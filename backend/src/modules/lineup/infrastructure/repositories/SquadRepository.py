@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from src.modules.lineup.domain.entities.Squad import Squad
-from src.modules.lineup.infrastructure.db.models.SquadModel import SquadModel
+from src.modules.lineup.infrastructure.models.SquadModel import SquadModel
 from src.modules.lineup.application.interfaces.ISquadRepository import ISquadRepository
 
 
@@ -17,7 +17,6 @@ class SquadRepository(ISquadRepository):
             model = SquadModel(
                 id=squad.id,
                 name=squad.name,
-                lineup_id=squad.lineup_id
             )
             self.session.add(model)
         else:
@@ -45,5 +44,4 @@ class SquadRepository(ISquadRepository):
         return Squad(
             id=model.id,
             name=model.name,
-            lineup_id=model.lineup_id
         )

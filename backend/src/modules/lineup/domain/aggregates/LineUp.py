@@ -21,18 +21,36 @@ class LineUp:
                 return squad
         raise ValueError("Squad not found")
 
-    def add_squad(self, squad_id: str):
+    def _sync_squads(self, incoming_squads):
+        existing = {s.id: s for s in self.squads}
+        new_squads = []
+
+        for s in incoming_squads:
+            if s.id in existing:
+                squad = existing[s.id]
+                squad.name = s.name
+                new_squads.append(squad)
+            else:
+                new_squads.append(Squad(id=s.id, name=s.name))
+
+        self.squads = new_squads
+
+    def update_from_dto(self, dto):
+        self.name = dto.name
+        self._sync_squads(dto.squads)
+
+    def add_squad(self, squad: Squad):
         """
-        Add a squad to the lineup by ID.
-        Raises ValueError if the squad is already present.
+        Add a squad to the lineup.
+        Raises ValueError if a squad with the same ID is already present.
         """
-        if squad_id in self.squads:
-            raise ValueError(f"Squad {squad_id} is already in the lineup")
-        self.squads.append(squad_id)
+        if any(s.id == squad.id for s in self.squads):
+            raise ValueError(f"Squad {squad.id} is already in the lineup")
+        self.squads.append(squad)
 
     def update_squad(self, squad_id: str, new_name: str | None = None):
         squad = self._get_squad_or_raise(squad_id)
-        squad.update(new_name=new_name)
+        squad.update(name=new_name)
 
     def remove_squad(self, squad_id: str):
         """

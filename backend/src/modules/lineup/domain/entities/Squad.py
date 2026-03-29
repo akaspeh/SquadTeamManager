@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 import uuid
 from dataclasses import dataclass, field
 from src.modules.lineup.domain.entities.SquadMember import SquadMember
@@ -19,12 +19,35 @@ class Squad:
     name: str = "Squad"
     members: List[SquadMember] = field(default_factory=list)
 
+
     def add_member(self, member: SquadMember):
         # Hard rules validated via policy
         SquadPolicy.validate_max_players(self)
         SquadPolicy.validate_unique_kit(self, member)
 
         self.members.append(member)
+
+    def update(
+            self,
+            name: Optional[str] = None,
+            add_members: Optional[List[SquadMember]] = None,
+            remove_member_ids: Optional[List[str]] = None
+    ):
+        """
+        Update squad properties safely via business rules.
+        - name: change squad name
+        - add_members: list of members to add (validated)
+        - remove_member_ids: list of member IDs to remove
+        """
+        if name is not None:
+            self.name = name
+
+        if remove_member_ids is not None:
+            self.members = [m for m in self.members if m.id not in remove_member_ids]
+
+        if add_members is not None:
+            for member in add_members:
+                self.add_member(member)
 
     def remove_member(self, member_id: str):
         self.members = [m for m in self.members if m.id != member_id]

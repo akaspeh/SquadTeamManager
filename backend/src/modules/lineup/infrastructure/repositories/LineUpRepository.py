@@ -1,9 +1,9 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from src.modules.lineup.domain.aggregates.LineUp import LineUp
-from src.modules.lineup.infrastructure.db.models.LineUpModel import LineUpModel
+from src.modules.lineup.infrastructure.models.LineUpModel import LineUpModel
 from src.modules.lineup.application.interfaces.ILineUpRepository import ILineUpRepository
-from src.modules.lineup.application.DTO.LineUpListItem import LineUpListItem
+from src.modules.lineup.application.DTO.LineUpListItemDTO import LineUpListItemDTO
 
 
 class LineUpRepository(ILineUpRepository):
@@ -39,12 +39,12 @@ class LineUpRepository(ILineUpRepository):
 
         return [self._to_domain(m) for m in models]
 
-    async def get_list_items(self) -> list[LineUpListItem]:
+    async def get_list_items(self) -> list[LineUpListItemDTO]:
         stmt = select(LineUpModel.id, LineUpModel.name)
         result = await self.session.execute(stmt)
 
         return [
-            LineUpListItem(id=row.id, name=row.name)
+            LineUpListItemDTO(id=row.id, name=row.name)
             for row in result.all()
         ]
 

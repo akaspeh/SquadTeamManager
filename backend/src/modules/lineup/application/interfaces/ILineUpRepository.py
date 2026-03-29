@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.modules.lineup.application.DTO.LineUpListItem import LineUpListItem
+from src.modules.lineup.application.DTO.LineUpListItemDTO import LineUpListItem
 from src.modules.lineup.domain.aggregates.LineUp import LineUp
 
 

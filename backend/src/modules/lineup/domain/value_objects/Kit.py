@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from ..enums.KitEnum import KitEnum
+from src.modules.lineup.domain.enums.KitEnum import KitEnum
 @dataclass(frozen=True, slots=True)
 class Kit:
     """
