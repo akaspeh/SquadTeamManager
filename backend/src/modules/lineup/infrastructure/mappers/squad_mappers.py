@@ -1,0 +1,32 @@
+from src.modules.lineup.domain.entities import Squad
+from src.modules.lineup.domain.value_objects import ID
+from src.modules.lineup.infrastructure.mappers.squad_member_mappers import to_domain_squad_member, to_model_squad_member
+from src.modules.lineup.infrastructure.models import SquadModel
+
+
+def to_domain_squad(model: SquadModel) -> Squad:
+    return Squad(
+        id=ID(model.id),
+        lineup_id=ID(model.lineup_id),
+        name=model.name,
+        created_at=model.created_at,
+        members=[
+            to_domain_squad_member(member_model)
+            for member_model in model.members
+        ],
+    )
+
+def to_model_squad(entity: Squad) -> SquadModel:
+    model = SquadModel(
+        id=str(entity.id),
+        lineup_id=str(entity.lineup_id),
+        name=entity.name,
+        created_at=entity.created_at,
+    )
+
+    model.members = [
+        to_model_squad_member(member)
+        for member in entity.members
+    ]
+
+    return model
