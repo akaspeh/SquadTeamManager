@@ -1,9 +1,9 @@
-from src.modules.lineup.application.interfaces import UnitOfWork
-from src.modules.lineup.domain.value_objects.id import ID
-from src.modules.lineup.domain.entities.squad_member import SquadMember
-from src.modules.lineup.domain.value_objects.kit import Kit
-from src.modules.lineup.domain.value_objects.role import Role
-from src.modules.lineup.domain.exceptions import ValidationError
+from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.domain.value_objects.id import ID
+from modules.lineup.domain.entities.squad_member import SquadMember
+from modules.lineup.domain.value_objects.kit import Kit
+from modules.lineup.domain.value_objects.role import Role
+from modules.lineup.domain.exceptions import ValidationError
 
 
 class AddPlayerToSquad:

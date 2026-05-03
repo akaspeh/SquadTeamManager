@@ -1,6 +1,6 @@
-from src.modules.lineup.application.interfaces import UnitOfWork
-from src.modules.lineup.domain.entities import Squad
-from src.modules.lineup.domain.value_objects import ID
+from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.domain.entities import Squad
+from modules.lineup.domain.value_objects import ID
 
 
 class AddSquadToLineup:

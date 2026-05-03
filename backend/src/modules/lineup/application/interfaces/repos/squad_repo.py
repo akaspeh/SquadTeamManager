@@ -1,7 +1,7 @@
 from typing import Protocol, List, Optional
 
-from src.modules.lineup.domain.entities import Squad
-from src.modules.lineup.domain.value_objects import ID
+from modules.lineup.domain.entities import Squad
+from modules.lineup.domain.value_objects import ID
 
 
 class SquadRepository(Protocol):

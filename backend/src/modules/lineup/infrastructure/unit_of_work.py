@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from src.modules.lineup.application.interfaces import UnitOfWork, LineupRepository
-from src.modules.lineup.infrastructure.repos.lineup_repo import SqlAlchemyLineupRepository
+from modules.lineup.application.interfaces import UnitOfWork, LineupRepository
+from modules.lineup.infrastructure.repos.lineup_repo import SqlAlchemyLineupRepository
 
 
 class SqlAlchemyUnitOfWork(UnitOfWork):

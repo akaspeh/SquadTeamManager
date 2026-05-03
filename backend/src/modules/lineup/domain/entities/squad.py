@@ -2,10 +2,10 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List
 
-from src.modules.lineup.domain.value_objects.id import ID
-from src.modules.lineup.domain.entities.squad_member import SquadMember
-from src.modules.lineup.domain.policies.squad_policy import SquadPolicy
-from src.modules.lineup.domain.exceptions import ValidationError
+from modules.lineup.domain.value_objects.id import ID
+from modules.lineup.domain.entities.squad_member import SquadMember
+from modules.lineup.domain.policies.squad_policy import SquadPolicy
+from modules.lineup.domain.exceptions import ValidationError
 
 
 @dataclass

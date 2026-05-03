@@ -1,5 +1,5 @@
-from src.modules.lineup.domain.aggregate_root import Lineup
-from src.modules.lineup.api.schemas import LineupResponse, SquadResponse, SquadMemberResponse
+from modules.lineup.domain.aggregate_root import Lineup
+from modules.lineup.api.schemas import LineupResponse, SquadResponse, SquadMemberResponse
 
 
 def to_response(lineup: Lineup) -> LineupResponse:

@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from src.modules.lineup.application.interfaces import LineupRepository
+from modules.lineup.application.interfaces import LineupRepository
 
 
 class UnitOfWork(Protocol):

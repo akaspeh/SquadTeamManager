@@ -1,6 +1,6 @@
-from src.modules.lineup.application.interfaces import UnitOfWork
-from src.modules.lineup.domain.aggregate_root import Lineup
-from src.modules.lineup.domain.value_objects import ID
+from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.domain.aggregate_root import Lineup
+from modules.lineup.domain.value_objects import ID
 
 
 class GetLineup:

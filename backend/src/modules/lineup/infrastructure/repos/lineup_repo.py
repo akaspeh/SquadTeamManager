@@ -1,12 +1,12 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.modules.lineup.application.interfaces import LineupRepository
-from src.modules.lineup.domain.aggregate_root import Lineup
-from src.modules.lineup.domain.value_objects import ID
-from src.modules.lineup.infrastructure.mappers.lineup_mappers import to_domain_lineup, to_model_lineup
+from modules.lineup.application.interfaces import LineupRepository
+from modules.lineup.domain.aggregate_root import Lineup
+from modules.lineup.domain.value_objects import ID
+from modules.lineup.infrastructure.mappers.lineup_mappers import to_domain_lineup, to_model_lineup
 
-from src.modules.lineup.infrastructure.models import LineupModel
+from modules.lineup.infrastructure.models import LineupModel
 
 
 class SqlAlchemyLineupRepository(LineupRepository):

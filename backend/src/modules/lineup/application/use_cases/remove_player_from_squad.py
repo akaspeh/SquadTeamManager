@@ -1,6 +1,6 @@
-from src.modules.lineup.application.interfaces import UnitOfWork
-from src.modules.lineup.domain.value_objects.id import ID
-from src.modules.lineup.domain.exceptions import ValidationError
+from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.domain.value_objects.id import ID
+from modules.lineup.domain.exceptions import ValidationError
 
 
 class RemovePlayerFromSquad:

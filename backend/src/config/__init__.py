@@ -1,6 +1,6 @@
-from src.config.database import *
-from src.config.run import *
-from src.config.api import *
+from config.database import *
+from config.run import *
+from config.api import *
 
 class Settings(BaseSettings):
     run_config: RunConfig = RunConfig()

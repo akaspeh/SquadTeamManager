@@ -1,11 +1,11 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
-from src.modules.lineup.api.ws.connection_manager import connection_manager
-from src.modules.lineup.application.use_cases.add_player_to_squad import AddPlayerToSquad
-from src.modules.lineup.application.use_cases.remove_player_from_squad import RemovePlayerFromSquad
-from src.modules.lineup.application.use_cases.add_squad_to_lineup import AddSquadToLineup
-from src.modules.lineup.application.use_cases.remove_squad_from_lineup import RemoveSquadFromLineup
-from src.modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
-from src.infrastructure.persistence.database import data_base_manager
+from modules.lineup.api.ws.connection_manager import connection_manager
+from modules.lineup.application.use_cases.add_player_to_squad import AddPlayerToSquad
+from modules.lineup.application.use_cases.remove_player_from_squad import RemovePlayerFromSquad
+from modules.lineup.application.use_cases.add_squad_to_lineup import AddSquadToLineup
+from modules.lineup.application.use_cases.remove_squad_from_lineup import RemoveSquadFromLineup
+from modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
+from infrastructure.persistence.database import data_base_manager
 
 router = APIRouter(prefix="/lineups", tags=["lineups"])
 

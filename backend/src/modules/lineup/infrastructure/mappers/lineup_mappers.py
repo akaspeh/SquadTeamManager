@@ -1,7 +1,7 @@
-from src.modules.lineup.domain.aggregate_root import Lineup
-from src.modules.lineup.domain.value_objects import ID
-from src.modules.lineup.infrastructure.mappers.squad_mappers import to_domain_squad, to_model_squad
-from src.modules.lineup.infrastructure.models import LineupModel
+from modules.lineup.domain.aggregate_root import Lineup
+from modules.lineup.domain.value_objects import ID
+from modules.lineup.infrastructure.mappers.squad_mappers import to_domain_squad, to_model_squad
+from modules.lineup.infrastructure.models import LineupModel
 
 
 def to_domain_lineup(model: LineupModel) -> Lineup:

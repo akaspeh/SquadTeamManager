@@ -1,7 +1,7 @@
-from src.modules.lineup.domain.entities import Squad
-from src.modules.lineup.domain.value_objects import ID
-from src.modules.lineup.infrastructure.mappers.squad_member_mappers import to_domain_squad_member, to_model_squad_member
-from src.modules.lineup.infrastructure.models import SquadModel
+from modules.lineup.domain.entities import Squad
+from modules.lineup.domain.value_objects import ID
+from modules.lineup.infrastructure.mappers.squad_member_mappers import to_domain_squad_member, to_model_squad_member
+from modules.lineup.infrastructure.models import SquadModel
 
 
 def to_domain_squad(model: SquadModel) -> Squad:

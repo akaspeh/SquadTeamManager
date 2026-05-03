@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException
 from starlette import status
 
-from src.modules.lineup.application.use_cases.create_lineup import CreateLineup
-from src.modules.lineup.application.use_cases.get_all_lineups import GetAllLineups
-from src.modules.lineup.application.use_cases.get_lineup import GetLineup
-from src.modules.lineup.api.mappers import to_response
-from src.modules.lineup.api.dependencies import get_uow
-from src.modules.lineup.application.use_cases.remove_lineup import RemoveLineup
-from src.modules.lineup.domain.exceptions import ValidationError
-from src.modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
+from modules.lineup.application.use_cases.create_lineup import CreateLineup
+from modules.lineup.application.use_cases.get_all_lineups import GetAllLineups
+from modules.lineup.application.use_cases.get_lineup import GetLineup
+from modules.lineup.api.mappers import to_response
+from modules.lineup.api.dependencies import get_uow
+from modules.lineup.application.use_cases.remove_lineup import RemoveLineup
+from modules.lineup.domain.exceptions import ValidationError
+from modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
 
 router = APIRouter(prefix="/lineups", tags=["lineups"])
 

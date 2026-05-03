@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine, async_sessionmaker, AsyncSession
 from backend.src.config import settings
 from sqlalchemy import text
-from src.infrastructure.persistence.base_model import BaseModel
+from infrastructure.persistence.base_model import BaseModel
 
 async def init_dev_database(engine: AsyncEngine):
     async with engine.begin() as conn:
