@@ -17,4 +17,6 @@ class AddSquadToLineup:
 
         lineup.add_squad(squad)
 
+        await self.uow.lineups.save(lineup)
+
         return str(squad.id)

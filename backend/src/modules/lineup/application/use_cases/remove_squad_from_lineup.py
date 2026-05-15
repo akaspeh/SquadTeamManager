@@ -13,3 +13,5 @@ class RemoveSquadFromLineup:
             raise ValueError("Lineup not found")
 
         lineup.remove_squad(ID(squad_id))
+
+        await self.uow.lineups.save(lineup)

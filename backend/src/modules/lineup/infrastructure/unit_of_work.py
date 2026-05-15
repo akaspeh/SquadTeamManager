@@ -8,6 +8,7 @@ class SqlAlchemyUnitOfWork(UnitOfWork):
     def __init__(self, session_factory: async_sessionmaker[AsyncSession]):
         self._session_factory = session_factory
         self.session: AsyncSession | None = None
+        self._committed = False
 
     async def __aenter__(self) -> "SqlAlchemyUnitOfWork":
         self.session = self._session_factory()
@@ -21,7 +22,8 @@ class SqlAlchemyUnitOfWork(UnitOfWork):
             if exc_type:
                 await self.session.rollback()
             else:
-                await self.session.commit()
+                if not self._committed:
+                    await self.session.commit()
         finally:
             await self.session.close()
             self.session = None
@@ -30,16 +32,15 @@ class SqlAlchemyUnitOfWork(UnitOfWork):
         if not self.session:
             raise RuntimeError("Session not initialized")
         await self.session.commit()
+        self._committed = True
 
     async def rollback(self):
         if not self.session:
             raise RuntimeError("Session not initialized")
-
         await self.session.rollback()
 
     @property
     def lineups(self) -> LineupRepository:
         if not self.session:
             raise RuntimeError("UoW not initialized")
-
         return SqlAlchemyLineupRepository(self.session)

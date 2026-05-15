@@ -19,3 +19,5 @@ class RemovePlayerFromSquad:
             raise ValidationError("Squad not found")
 
         squad.remove_member(ID(member_id))
+
+        await self.uow.lineups.save(lineup)

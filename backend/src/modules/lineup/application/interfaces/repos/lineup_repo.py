@@ -11,6 +11,9 @@ class LineupRepository(Protocol):
     async def add(self, lineup: Lineup) -> None:
         ...
 
+    async def save(self, lineup: Lineup) -> None:
+        ...
+
     async def remove(self, id: ID) -> None:
         ...
 
