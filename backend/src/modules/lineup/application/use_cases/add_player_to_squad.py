@@ -17,7 +17,7 @@ class AddPlayerToSquad:
         if not lineup:
             raise ValidationError("Lineup not found")
 
-        squad = next((s for s in lineup.squads if s.id == ID(squad_id)), None)
+        squad = lineup.get_squad(ID(squad_id))
 
         if not squad:
             raise ValidationError("Squad not found")

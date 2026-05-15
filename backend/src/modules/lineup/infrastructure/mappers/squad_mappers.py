@@ -9,6 +9,7 @@ def to_domain_squad(model: SquadModel) -> Squad:
         id=ID(model.id),
         lineup_id=ID(model.lineup_id),
         name=model.name,
+        color=model.color,
         created_at=model.created_at,
         members=[
             to_domain_squad_member(member_model)

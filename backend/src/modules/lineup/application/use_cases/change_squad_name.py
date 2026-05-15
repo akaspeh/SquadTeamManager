@@ -3,21 +3,20 @@ from shared.domain.value_objects.id import ID
 from shared.domain.exceptions import ValidationError
 
 
-class RemovePlayerFromSquad:
+class ChangeSquadName:
     def __init__(self, uow: UnitOfWork):
         self.uow = uow
 
-    async def execute(self,lineup_id: str,squad_id: str,member_id: str,):
+    async def execute(self, lineup_id: str, squad_id: str, name: str):
         lineup = await self.uow.lineups.get(ID(lineup_id))
 
         if not lineup:
             raise ValidationError("Lineup not found")
 
         squad = lineup.get_squad(ID(squad_id))
-
         if not squad:
             raise ValidationError("Squad not found")
 
-        squad.remove_member(ID(member_id))
+        squad.change_name(name)
 
         await self.uow.lineups.save(lineup)

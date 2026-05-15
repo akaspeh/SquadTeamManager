@@ -19,6 +19,7 @@ def to_response(lineup: Lineup) -> LineupResponse:
                     )
                     for m in s.members
                 ],
+                color=s.color,
             )
             for s in lineup.squads
         ],

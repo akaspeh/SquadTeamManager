@@ -13,6 +13,7 @@ class SquadResponse(BaseModel):
     id: str
     name: str
     members: List[SquadMemberResponse]
+    color: str
 
 
 class LineupResponse(BaseModel):
