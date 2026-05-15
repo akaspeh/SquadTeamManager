@@ -1,11 +1,11 @@
-from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.application.interfaces import LineupUnitOfWork
 from shared.domain.value_objects.id import ID
 from shared.domain.value_objects.kit import Kit
 from shared.domain.exceptions import ValidationError
 
 
 class ChangePlayerKit:
-    def __init__(self, uow: UnitOfWork):
+    def __init__(self, uow: LineupUnitOfWork):
         self.uow = uow
 
     async def execute(self, lineup_id: str, squad_id: str, member_id: str, kit: str):

@@ -1,10 +1,10 @@
-from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.application.interfaces import LineupUnitOfWork
 from shared.domain.value_objects.id import ID
 from shared.domain.exceptions import ValidationError
 
 
 class ChangeSquadColor:
-    def __init__(self, uow: UnitOfWork):
+    def __init__(self, uow: LineupUnitOfWork):
         self.uow = uow
 
     async def execute(

@@ -1,16 +1,16 @@
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from modules.lineup.application.interfaces import UnitOfWork, LineupRepository
+from modules.lineup.application.interfaces import LineupUnitOfWork, LineupRepository
 from modules.lineup.infrastructure.repos.lineup_repo import SqlAlchemyLineupRepository
 
 
-class SqlAlchemyUnitOfWork(UnitOfWork):
+class SqlAlchemyLineupUnitOfWork(LineupUnitOfWork):
     def __init__(self, session_factory: async_sessionmaker[AsyncSession]):
         self._session_factory = session_factory
         self.session: AsyncSession | None = None
         self._committed = False
 
-    async def __aenter__(self) -> "SqlAlchemyUnitOfWork":
+    async def __aenter__(self) -> "SqlAlchemyLineupUnitOfWork":
         self.session = self._session_factory()
         return self
 

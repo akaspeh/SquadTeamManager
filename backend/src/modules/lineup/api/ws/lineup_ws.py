@@ -8,7 +8,7 @@ from modules.lineup.application.use_cases.remove_player_from_squad import Remove
 from modules.lineup.application.use_cases.add_squad_to_lineup import AddSquadToLineup
 from modules.lineup.application.use_cases.remove_squad_from_lineup import RemoveSquadFromLineup
 from modules.lineup.application.use_cases.change_squad_color import ChangeSquadColor
-from modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
+from modules.lineup.infrastructure.unit_of_work import SqlAlchemyLineupUnitOfWork
 from shared.infrastructure.database import data_base_manager
 
 router = APIRouter(prefix="/lineups", tags=["lineups"])
@@ -24,7 +24,7 @@ async def lineup_ws(websocket: WebSocket, lineup_id: str):
             action = message.get("action")
             data = message.get("data", {})
 
-            async with SqlAlchemyUnitOfWork(data_base_manager.session_factory) as uow:
+            async with SqlAlchemyLineupUnitOfWork(data_base_manager.session_factory) as uow:
                 event = None
                 # --- SQUAD ---
                 if action == "add_squad":

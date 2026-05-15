@@ -1,0 +1,16 @@
+from typing import Protocol
+
+
+class BaseUnitOfWork(Protocol):
+
+    async def __aenter__(self) -> "BaseUnitOfWork":
+        ...
+
+    async def __aexit__(self, exc_type, exc, tb):
+        ...
+
+    async def rollback(self):
+        ...
+
+    async def commit(self):
+        ...

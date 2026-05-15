@@ -8,7 +8,7 @@ from modules.lineup.api.mappers import to_response
 from modules.lineup.api.dependencies import get_uow
 from modules.lineup.application.use_cases.remove_lineup import RemoveLineup
 from shared.domain.exceptions import ValidationError
-from modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
+from modules.lineup.infrastructure.unit_of_work import SqlAlchemyLineupUnitOfWork
 
 router = APIRouter(prefix="/lineups", tags=["lineups"])
 
@@ -17,7 +17,7 @@ router = APIRouter(prefix="/lineups", tags=["lineups"])
 
 # --- GET LIST ---
 @router.get("/")
-async def get_lineups(uow: SqlAlchemyUnitOfWork = Depends(get_uow)):
+async def get_lineups(uow: SqlAlchemyLineupUnitOfWork = Depends(get_uow)):
     async with uow:
         use_case = GetAllLineups(uow)
         lineups = await use_case.execute()
@@ -27,7 +27,7 @@ async def get_lineups(uow: SqlAlchemyUnitOfWork = Depends(get_uow)):
 
 # --- GET ONE ---
 @router.get("/{lineup_id}")
-async def get_lineup(lineup_id: str, uow: SqlAlchemyUnitOfWork = Depends(get_uow)):
+async def get_lineup(lineup_id: str, uow: SqlAlchemyLineupUnitOfWork = Depends(get_uow)):
     async with uow:
         use_case = GetLineup(uow)
         return await use_case.execute(lineup_id)
@@ -35,7 +35,7 @@ async def get_lineup(lineup_id: str, uow: SqlAlchemyUnitOfWork = Depends(get_uow
 @router.post("/")
 async def create_lineup(
     name: str,
-    uow: SqlAlchemyUnitOfWork = Depends(get_uow)
+    uow: SqlAlchemyLineupUnitOfWork = Depends(get_uow)
 ):
     async with uow:
         use_case = CreateLineup(uow)
@@ -46,7 +46,7 @@ async def create_lineup(
 @router.delete("/{lineup_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_lineup(
     lineup_id: str,
-    uow: SqlAlchemyUnitOfWork = Depends(get_uow)
+    uow: SqlAlchemyLineupUnitOfWork = Depends(get_uow)
 ):
     async with uow:
         use_case = RemoveLineup(uow)

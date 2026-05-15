@@ -1,9 +1,9 @@
-from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.application.interfaces import LineupUnitOfWork
 from shared.domain.value_objects import ID
 
 
 class RemoveSquadFromLineup:
-    def __init__(self, uow:  UnitOfWork):
+    def __init__(self, uow:  LineupUnitOfWork):
         self.uow = uow
 
     async def execute(self, lineup_id: str, squad_id: str):

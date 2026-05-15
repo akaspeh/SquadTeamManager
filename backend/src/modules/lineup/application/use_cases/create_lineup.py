@@ -1,9 +1,9 @@
-from modules.lineup.application.interfaces import UnitOfWork
+from modules.lineup.application.interfaces import LineupUnitOfWork
 from modules.lineup.domain.aggregate_root import Lineup
 
 
 class CreateLineup:
-    def __init__(self, uow: UnitOfWork):
+    def __init__(self, uow: LineupUnitOfWork):
         self.uow = uow
 
     async def execute(self, name: str) -> str:
