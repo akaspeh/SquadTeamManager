@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from contextlib import asynccontextmanager
-from infrastructure.persistence.database import data_base_manager
+from shared.infrastructure.database import data_base_manager
 from modules.lineup.api.routes.lineup import router as lineup_router
 from modules.lineup.api.ws.lineup_ws import router as lineup_router_ws
 

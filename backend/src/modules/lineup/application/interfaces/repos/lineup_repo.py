@@ -1,7 +1,7 @@
 from typing import Protocol, Optional, List
 
 from modules.lineup.domain.aggregate_root import Lineup
-from modules.lineup.domain.value_objects import ID
+from shared.domain.value_objects import ID
 
 
 class LineupRepository(Protocol):

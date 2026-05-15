@@ -2,9 +2,9 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List
 
-from modules.lineup.domain.value_objects.id import ID
+from shared.domain.value_objects.id import ID
 from modules.lineup.domain.entities.squad import Squad
-from modules.lineup.domain.exceptions import ValidationError
+from shared.domain.exceptions import ValidationError
 
 
 @dataclass

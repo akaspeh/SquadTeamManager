@@ -1,4 +1,4 @@
-from modules.lineup.domain.exceptions import ValidationError
+from shared.domain.exceptions import ValidationError
 
 
 class SquadPolicy:

@@ -5,7 +5,7 @@ from modules.lineup.application.use_cases.remove_player_from_squad import Remove
 from modules.lineup.application.use_cases.add_squad_to_lineup import AddSquadToLineup
 from modules.lineup.application.use_cases.remove_squad_from_lineup import RemoveSquadFromLineup
 from modules.lineup.infrastructure.unit_of_work import SqlAlchemyUnitOfWork
-from infrastructure.persistence.database import data_base_manager
+from shared.infrastructure.database import data_base_manager
 
 router = APIRouter(prefix="/lineups", tags=["lineups"])
 

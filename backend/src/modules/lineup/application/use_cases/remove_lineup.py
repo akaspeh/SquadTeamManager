@@ -1,6 +1,6 @@
 from modules.lineup.application.interfaces import UnitOfWork
-from modules.lineup.domain.value_objects.id import ID
-from modules.lineup.domain.exceptions import ValidationError
+from shared.domain.value_objects.id import ID
+from shared.domain.exceptions import ValidationError
 
 
 class RemoveLineup:

@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 
-from modules.lineup.domain.value_objects.id import ID
-from modules.lineup.domain.value_objects.kit import Kit
-from modules.lineup.domain.value_objects.role import Role
+from shared.domain.value_objects.id import ID
+from shared.domain.value_objects.kit import Kit
+from shared.domain.value_objects.role import Role
 
 
 @dataclass
