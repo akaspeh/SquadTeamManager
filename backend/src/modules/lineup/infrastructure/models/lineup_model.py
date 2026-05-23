@@ -5,11 +5,18 @@ from datetime import datetime
 
 from shared.infrastructure import BaseModel
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from modules.lineup.infrastructure.models.squad_model import SquadModel
+
 
 class LineupModel(BaseModel):
     __tablename__ = "lineups"
 
-    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id: Mapped[str] = mapped_column(
+        String, primary_key=True, default=lambda: str(uuid.uuid4())
+    )
     name: Mapped[str] = mapped_column(String, default="default_lineup")
     created_at: Mapped[datetime] = mapped_column(DateTime)
 
@@ -18,8 +25,3 @@ class LineupModel(BaseModel):
         cascade="all, delete-orphan",
         lazy="selectin",
     )
-
-
-
-
-

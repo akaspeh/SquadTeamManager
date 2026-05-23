@@ -7,7 +7,12 @@ class RemovePlayerFromSquad:
     def __init__(self, uow: LineupUnitOfWork):
         self.uow = uow
 
-    async def execute(self,lineup_id: str,squad_id: str,member_id: str,):
+    async def execute(
+        self,
+        lineup_id: str,
+        squad_id: str,
+        member_id: str,
+    ):
         lineup = await self.uow.lineups.get(ID(lineup_id))
 
         if not lineup:

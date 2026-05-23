@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class ILogger(ABC):
     @abstractmethod
     def debug(self, message: str, **context) -> None:

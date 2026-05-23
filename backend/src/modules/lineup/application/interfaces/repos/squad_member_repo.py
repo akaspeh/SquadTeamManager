@@ -5,5 +5,4 @@ from shared.domain.value_objects import ID
 
 
 class SquadMemberRepository(Protocol):
-    async def list_by_squad(self, squad_id: ID) -> List[SquadMember]:
-        ...
+    async def list_by_squad(self, squad_id: ID) -> List[SquadMember]: ...

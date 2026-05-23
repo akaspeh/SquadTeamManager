@@ -6,5 +6,4 @@ from shared.application.base_unit_of_work import BaseUnitOfWork
 
 class LineupUnitOfWork(BaseUnitOfWork, Protocol):
     @property
-    def lineups(self) -> LineupRepository:
-        ...
+    def lineups(self) -> LineupRepository: ...

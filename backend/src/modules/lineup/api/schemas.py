@@ -20,4 +20,3 @@ class LineupResponse(BaseModel):
     id: str
     name: str
     squads: List[SquadResponse]
-

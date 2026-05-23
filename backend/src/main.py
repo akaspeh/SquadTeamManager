@@ -13,6 +13,7 @@ async def lifespan(app: FastAPI):
     yield
     await data_base_manager.dispose()
 
+
 app = FastAPI(title="Lineup Service API", lifespan=lifespan)
 app.include_router(lineup_router)
 app.include_router(lineup_router_ws)

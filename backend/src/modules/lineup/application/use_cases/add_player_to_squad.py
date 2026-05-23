@@ -11,7 +11,8 @@ class AddPlayerToSquad:
         self.uow = uow
 
     async def execute(
-        self, lineup_id: str, squad_id: str, name: str, kit: Kit, role: Role) -> str:
+        self, lineup_id: str, squad_id: str, name: str, kit: Kit, role: Role
+    ) -> str:
         lineup = await self.uow.lineups.get(ID(lineup_id))
 
         if not lineup:

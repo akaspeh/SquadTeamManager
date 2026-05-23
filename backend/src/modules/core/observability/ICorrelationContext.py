@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class ICorrelationContext(ABC):
     @abstractmethod
     def get_correlation_id(self) -> str:

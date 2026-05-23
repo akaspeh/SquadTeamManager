@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class ApiConfig(BaseSettings):
     prefix: str = "/api"
 

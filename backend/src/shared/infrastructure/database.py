@@ -3,11 +3,13 @@ from backend.src.config import settings
 from sqlalchemy import text
 from shared.infrastructure.base_model import BaseModel
 
+
 async def init_dev_database(engine: AsyncEngine):
     async with engine.begin() as conn:
         await conn.execute(text('CREATE EXTENSION IF NOT EXISTS "pgcrypto";'))
         await conn.run_sync(BaseModel.metadata.drop_all)
         await conn.run_sync(BaseModel.metadata.create_all)
+
 
 class Database:
     def __init__(self):

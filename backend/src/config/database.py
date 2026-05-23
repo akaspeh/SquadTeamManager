@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class DBconfig(BaseSettings):
     url: str = "postgresql+asyncpg://SquadTeamManager_user:some_password@localhost:5432/SquadTeamManager_db"
     echo: bool = True

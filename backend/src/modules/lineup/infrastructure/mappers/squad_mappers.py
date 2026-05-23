@@ -1,6 +1,9 @@
 from modules.lineup.domain.entities import Squad
 from shared.domain.value_objects import ID
-from modules.lineup.infrastructure.mappers.squad_member_mappers import to_domain_squad_member, to_model_squad_member
+from modules.lineup.infrastructure.mappers.squad_member_mappers import (
+    to_domain_squad_member,
+    to_model_squad_member,
+)
 from modules.lineup.infrastructure.models import SquadModel
 
 
@@ -12,10 +15,10 @@ def to_domain_squad(model: SquadModel) -> Squad:
         color=model.color,
         created_at=model.created_at,
         members=[
-            to_domain_squad_member(member_model)
-            for member_model in model.members
+            to_domain_squad_member(member_model) for member_model in model.members
         ],
     )
+
 
 def to_model_squad(entity: Squad) -> SquadModel:
     model = SquadModel(
@@ -25,9 +28,6 @@ def to_model_squad(entity: Squad) -> SquadModel:
         created_at=entity.created_at,
     )
 
-    model.members = [
-        to_model_squad_member(member)
-        for member in entity.members
-    ]
+    model.members = [to_model_squad_member(member) for member in entity.members]
 
     return model

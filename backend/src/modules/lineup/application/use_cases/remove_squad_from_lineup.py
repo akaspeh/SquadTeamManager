@@ -3,7 +3,7 @@ from shared.domain.value_objects import ID
 
 
 class RemoveSquadFromLineup:
-    def __init__(self, uow:  LineupUnitOfWork):
+    def __init__(self, uow: LineupUnitOfWork):
         self.uow = uow
 
     async def execute(self, lineup_id: str, squad_id: str):

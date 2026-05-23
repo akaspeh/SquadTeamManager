@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class RunConfig(BaseSettings):
     # network
     host: str = "0.0.0.0"
@@ -7,7 +8,7 @@ class RunConfig(BaseSettings):
 
     # environment
     debug: bool = False
-    environment: str = "dev"   # dev | staging | prod
+    environment: str = "dev"  # dev | staging | prod
 
     # workers (for uvicorn/gunicorn)
     workers: int = 1

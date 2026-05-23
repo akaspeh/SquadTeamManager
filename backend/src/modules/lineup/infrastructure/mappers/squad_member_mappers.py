@@ -13,6 +13,7 @@ def to_domain_squad_member(model: SquadMemberModel) -> SquadMember:
         created_at=model.created_at,
     )
 
+
 def to_model_squad_member(entity: SquadMember) -> SquadMemberModel:
     return SquadMemberModel(
         id=str(entity.id),

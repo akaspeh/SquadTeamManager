@@ -6,6 +6,7 @@ from shared.domain.value_objects.kit import Kit
 from shared.domain.value_objects.role import Role
 from shared.domain.exceptions import ValidationError
 
+
 @dataclass
 class SquadMember:
     id: ID

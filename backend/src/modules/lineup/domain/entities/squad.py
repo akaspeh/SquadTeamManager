@@ -11,6 +11,7 @@ import re
 
 HEX_COLOR_RE = re.compile(r"^#[0-9A-Fa-f]{6}$")
 
+
 @dataclass
 class Squad:
     id: ID
@@ -22,12 +23,7 @@ class Squad:
 
     @staticmethod
     def create(lineup_id: ID, name: str = "default_squad") -> "Squad":
-        return Squad(
-            id=ID.new(),
-            lineup_id=lineup_id,
-            name=name,
-            color="#FFFFFF"
-        )
+        return Squad(id=ID.new(), lineup_id=lineup_id, name=name, color="#FFFFFF")
 
     def add_member(self, member: SquadMember):
         if member.squad_id != self.id:

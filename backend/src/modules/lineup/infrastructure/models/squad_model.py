@@ -5,11 +5,19 @@ from datetime import datetime
 
 from shared.infrastructure import BaseModel
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from modules.lineup.infrastructure.models.squad_member_model import SquadMemberModel
+    from modules.lineup.infrastructure.models.lineup_model import LineupModel
+
 
 class SquadModel(BaseModel):
     __tablename__ = "squads"
 
-    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id: Mapped[str] = mapped_column(
+        String, primary_key=True, default=lambda: str(uuid.uuid4())
+    )
     lineup_id: Mapped[str] = mapped_column(ForeignKey("lineups.id"))
     name: Mapped[str] = mapped_column(String, default="default_squad")
     color: Mapped[str] = mapped_column(String(7), default="#FFFFFF")
