@@ -1,6 +1,8 @@
 from typing import Any, Callable
 from contextvars import ContextVar
-from backend.src.modules.core.observability.ICorrelationContext import ICorrelationContext
+from backend.src.modules.core.observability.ICorrelationContext import (
+    ICorrelationContext,
+)
 
 try:
     from opentelemetry import trace

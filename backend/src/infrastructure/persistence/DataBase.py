@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine, async_sessionmaker
 from backend.src.config import settings
 
+
 class Database:
     def __init__(self):
         self.engine: AsyncEngine = create_async_engine(
@@ -13,10 +14,7 @@ class Database:
             pool_pre_ping=True,
         )
         self.session_factory = async_sessionmaker(
-            bind=self.engine,
-            autoflush=False,
-            expire_on_commit=False,
-            autocommit=False
+            bind=self.engine, autoflush=False, expire_on_commit=False, autocommit=False
         )
 
     async def dispose(self):

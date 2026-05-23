@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class IMetricCollector(ABC):
     @abstractmethod
     def increment(self, metric_name: str, value: int = 1, **tags: Any) -> None:

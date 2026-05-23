@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class DBconfig(BaseSettings):
     url: str = "postgresql+asyncpg://postgres:some_password@localhost:5432/mydb"
     echo: bool = True

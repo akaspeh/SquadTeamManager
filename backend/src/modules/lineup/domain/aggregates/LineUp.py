@@ -2,6 +2,7 @@ import uuid
 from dataclasses import dataclass, field
 from typing import List
 
+
 @dataclass
 class LineUp:
     """
@@ -9,6 +10,7 @@ class LineUp:
     Contains references to Squad aggregates by their IDs.
     Responsible for coordination of squads but not their internal rules.
     """
+
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     name: str = "Default LineUp"
     squad_ids: List[str] = field(default_factory=list)

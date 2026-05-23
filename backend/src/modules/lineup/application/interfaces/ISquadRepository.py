@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from backend.src.modules.lineup.domain.aggregates.Squad import Squad
 
-class ISquadRepository(ABC):
 
+class ISquadRepository(ABC):
     @abstractmethod
     def save(self, squad: Squad) -> None:
         """Persist the squad"""

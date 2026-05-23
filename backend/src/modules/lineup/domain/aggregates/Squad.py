@@ -9,12 +9,14 @@ from ..policies.SquadPolicy import SquadPolicy
 # to not modify list as its hard operation
 # but right now im tired
 
+
 @dataclass
 class Squad:
     """
     Aggregate representing a squad lineup.
     Delegates hard rules to SquadPolicy.
     """
+
     name: str
     formation: Formation
     members: List[SquadMember] = field(default_factory=list)
@@ -32,4 +34,3 @@ class Squad:
     @property
     def current_size(self) -> int:
         return len(self.members)
-

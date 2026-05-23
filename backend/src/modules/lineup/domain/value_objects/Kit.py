@@ -1,10 +1,13 @@
 from dataclasses import dataclass
 from ..enums.KitEnum import KitEnum
+
+
 @dataclass(frozen=True, slots=True)
 class Kit:
     """
     Value Object representing a player's kit.
     """
+
     name: str
 
     def __post_init__(self):

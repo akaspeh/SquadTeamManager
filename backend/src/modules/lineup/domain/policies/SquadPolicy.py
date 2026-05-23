@@ -1,4 +1,3 @@
-
 from ..entities.SquadMember import SquadMember
 
 

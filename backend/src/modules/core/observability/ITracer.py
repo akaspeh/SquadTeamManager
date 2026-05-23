@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class ITracer(ABC):
     @abstractmethod
     def start_span(self, name: str, **attributes: Any) -> Any:

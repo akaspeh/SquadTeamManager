@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class KitEnum(str, Enum):
     SQUAD_LEADER = "Squad Leader"
     MEDIC = "Medic"

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class KitCategoryEnum(str, Enum):
     SPECIALIST = "Specialist"
     FIRE_SUPPORT = "Fire Support"
