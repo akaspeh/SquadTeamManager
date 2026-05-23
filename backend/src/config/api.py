@@ -1,4 +1,4 @@
-from pydantic import BaseSettings, Field
+from pydantic import BaseSettings
 
 class ApiConfig(BaseSettings):
     prefix: str = "/api"

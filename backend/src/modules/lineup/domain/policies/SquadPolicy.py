@@ -1,4 +1,3 @@
-from typing import List
 
 from ..entities.SquadMember import SquadMember
 
