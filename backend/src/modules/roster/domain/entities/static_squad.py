@@ -9,5 +9,6 @@ class StaticSquad:
     id: ID
     name: str
     description: str | None = None
+    color: str | None = None
 
     members: list[Membership] = field(default_factory=list)
